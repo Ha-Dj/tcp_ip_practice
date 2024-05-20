@@ -1,0 +1,28 @@
+# 忽略编译生成的文件
+build/
+bin/*
+!bin/.gitkeep
+lib/
+
+# 忽略 Makefile
+Makefile
+
+# 忽略 Visual Studio Code 相关文件
+.vscode/
+
+# 忽略 CLion 相关文件
+.idea
+
+# 忽略 Xcode 相关文件
+*.xcodeproj
+*.xcworkspace
+
+# 忽略 CMake 相关文件
+CMakeFiles/
+# CMakeCache.txt
+cmake_install.cmake
+compile_commands.json
+
+# 忽略临时文件
+*.swp
+*~
