@@ -28,6 +28,14 @@ ssize_t sendto(int sock, void *buff, size_t nbytes, int flags, struct sockaddr *
 // from 和 addrlen用于存读取到的 udp 报文的 sockaddr 和 addrlen
 ssize_t recvfrom(int sock, void *buff, size_t nbytes, int flags, struct sockaddr *from, socklen_t *addrlen);
 ```
+
+#### connect
+sendto 流程:
+1. 向 UDP套接字注册目标IP和端口号
+2. 传输数据
+3. 删除 UDP套接字中注册的目标IP和端口
+
+如果是多次重复向同一个 IP:PROT 发送 udp报文，可以先调用 connect，注册后，再调用 read write，节省上述的 第 1 步的开销
 ## 实现了一个 upd 版本的 echo_server
 ```shell
 mkdir build
