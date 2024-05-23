@@ -43,14 +43,8 @@ int main(int argc, char *argv[]) {
         exit(1);
     }
 
-    while(1) {
-        read_cnt = read(sock_fd, buf, BUF_SIZE);
-        if (read_cnt < BUF_SIZE) {
-            // 读不满 BUF_SIZE字节
-            fwrite(buf, 1, read_cnt, file_fd);
-            break;
-        }
-        fwrite(buf, 1, BUF_SIZE, file_fd);
+    while((read_cnt = read(sock_fd, buf, BUF_SIZE)) != 0) {
+        fwrite((void *)buf, 1, read_cnt, file_fd);
     }
 
     printf("Received file data and stored in %s\n", argv[1]);
