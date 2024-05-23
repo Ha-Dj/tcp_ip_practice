@@ -4,6 +4,9 @@
 ## UDP 中服务器端与客户端没有连接
 ### UDP 服务器端和客户端均只需要 1 个套接字
 ![UDP套接字通信模型](./figure/img1.png)
+### UDP 数据报
+![UDP数据报](./figure/image.png)
+因此，发送几次udp数据报(sendto)，就要接受几次(recv_from)
 ### UDP 的数据 I/O函数
 #### 发送函数
 ```c
